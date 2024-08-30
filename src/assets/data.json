@@ -1,0 +1,127 @@
+[
+  {
+    "propertyId": "uuid1",
+    "propertyType": "Apartments",
+    "propertyDescription": "A modern 2-bedroom apartment in the city center.",
+    "propertyPrice": 250000,
+    "propertyLocation": "New York, NY",
+    "propertyAge": 5,
+    "isVerified": true,
+    "datePosted": "2024-08-01",
+    "propertyOwner": "Emily Carter",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534468/iLAndProperties/properties/aaron-huber-s95oB2n9jng-unsplash_k0spaz.jpg"
+  },
+  {
+    "propertyId": "uuid2",
+    "propertyType": "SF Homes",
+    "propertyDescription": "A spacious 4-bedroom home with a large garden.",
+    "propertyPrice": 550000,
+    "propertyLocation": "Los Angeles, CA",
+    "propertyAge": 10,
+    "isVerified": true,
+    "datePosted": "2024-08-02",
+    "propertyOwner": "James Burke",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534477/iLAndProperties/properties/dillon-kydd-2keCPb73aQY-unsplash_qhmegc.jpg"
+  },
+  {
+    "propertyId": "uuid3",
+    "propertyType": "Condos",
+    "propertyDescription": "A stylish 1-bedroom condo with city views.",
+    "propertyPrice": 320000,
+    "propertyLocation": "San Francisco, CA",
+    "propertyAge": 3,
+    "isVerified": false,
+    "datePosted": "2024-08-03",
+    "propertyOwner": "Owen McGrathy",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723471338/iLAndProperties/properties/rafael-hoyos-weht-8PKGjZ2GzuQ-unsplash_dztinv.jpg"
+  },
+  {
+    "propertyId": "uuid4",
+    "propertyType": "Townhouses",
+    "propertyDescription": "A charming 3-bedroom townhouse with a private garage.",
+    "propertyPrice": 420000,
+    "propertyLocation": "Seattle, WA",
+    "propertyAge": 7,
+    "isVerified": true,
+    "datePosted": "2024-08-04",
+    "propertyOwner": "Patrick Mane",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534467/iLAndProperties/properties/lotus-design-n-print-wRzBarqn3hs-unsplash_wiw4ui.jpg"
+  },
+  {
+    "propertyId": "uuid5",
+    "propertyType": "Duplexes",
+    "propertyDescription": "A newly renovated duplex in a quiet neighborhood.",
+    "propertyPrice": 600000,
+    "propertyLocation": "Chicago, IL",
+    "propertyAge": 15,
+    "isVerified": false,
+
+    "datePosted": "2024-08-05",
+    "propertyOwner": "Jessica HartLand",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534457/iLAndProperties/properties/francesca-tosolini-XcVm8mn7NUM-unsplash_g5p5ba.jpg"
+  },
+  {
+    "propertyId": "uuid6",
+    "propertyType": "Lofts",
+    "propertyDescription": "A trendy loft with high ceilings and exposed brick.",
+    "propertyPrice": 400000,
+    "propertyLocation": "Austin, TX",
+    "propertyAge": 6,
+    "isVerified": false,
+    "datePosted": "2024-08-06",
+    "propertyOwner": "Peters O'Niel",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534408/iLAndProperties/properties/StockCake-Urban_Evening_Lights_1723534360_ogjidi.jpg"
+  },
+  {
+    "propertyId": "uuid7",
+    "propertyType": "Villas",
+    "propertyDescription": "A luxurious villa with a private pool and large garden.",
+    "propertyPrice": 1200000,
+    "propertyLocation": "Miami, FL",
+    "propertyAge": 8,
+    "isVerified": false,
+
+    "datePosted": "2024-08-07",
+    "propertyOwner": "Goerge Cooper",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534408/iLAndProperties/properties/StockCake-Futuristic_Apartment_Design_1723534329_rsiiwq.jpg"
+  },
+  {
+    "propertyId": "uuid8",
+    "propertyType": "Studios",
+    "propertyDescription": "A cozy studio apartment ideal for city living.",
+    "propertyPrice": 180000,
+    "propertyLocation": "Boston, MA",
+    "propertyAge": 2,
+    "isVerified": true,
+
+    "datePosted": "2024-08-08",
+    "propertyOwner": "The A Property",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723471338/iLAndProperties/properties/rafael-hoyos-weht-8PKGjZ2GzuQ-unsplash_dztinv.jpg"
+  },
+  {
+    "propertyId": "uuid9",
+    "propertyType": "Cabins",
+    "propertyDescription": "A rustic cabin in a mountainous area with scenic views.",
+    "propertyPrice": 350000,
+    "propertyLocation": "Denver, CO",
+    "propertyAge": 20,
+    "isVerified": false,
+
+    "datePosted": "iLandProperties",
+    "propertyOwner": "Owner I",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534468/iLAndProperties/properties/frames-for-your-heart-2d4lAQAlbDA-unsplash_n4rdle.jpg"
+  },
+  {
+    "propertyId": "uuid10",
+    "propertyType": "Penthouses",
+    "propertyDescription": "A luxurious penthouse with panoramic city views.",
+    "propertyPrice": 2000000,
+    "propertyLocation": "New York, NY",
+    "propertyAge": 4,
+    "isVerified": true,
+
+    "datePosted": "2024-08-10",
+    "propertyOwner": "Jason Glory",
+    "images": "https://res.cloudinary.com/dt75zlucp/image/upload/v1723534467/iLAndProperties/properties/lotus-design-n-print-wRzBarqn3hs-unsplash_wiw4ui.jpg"
+  }
+]

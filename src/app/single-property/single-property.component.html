@@ -1,0 +1,239 @@
+<section
+  class="px-8 flex flex-wrap pt-20 shadow-lg"
+  style="height: calc(75% + 8%)"
+>
+  <div class="h-full flex gap-2 p-2" style="width: calc(50% + 120px)">
+    <div
+      class="w-2/3 h-full relative grid place-items-center rounded-lg overflow-hidden"
+    >
+      <div class="absolute w-full h-7 flex items-center px-4 justify-between">
+        <div
+          class="rounded-full h-8 w-8 bg-secondaryColor grid place-items-center"
+        >
+          <fa-icon [icon]="faAnglesLeft" class="text-black fa-sm"></fa-icon>
+        </div>
+        <div
+          class="rounded-full h-8 w-8 bg-secondaryColor grid place-items-center"
+        >
+          <fa-icon [icon]="faAnglesRight" class="text-black fa-sm"></fa-icon>
+        </div>
+      </div>
+      <img
+        class="object-cover w-full h-full rounded-lg shadow-lg"
+        src="{{ property?.thumbnail }}"
+      />
+
+      <div
+        class="bg-black bg-opacity-50 text-xs flex gap-2 items-center absolute bottom-0 text-white h-10 w-full pl-3"
+      >
+        <fa-icon [icon]="faimage" class="fa-xl" />
+
+        Picture 1 of a {{ property?.property_type }} in
+        {{ property?.property_location }}.
+      </div>
+    </div>
+
+    <div
+      #imagesdiv
+      class="flex flex-col gap-3 overflow-y-scroll w-1/3 rounded-lg"
+    >
+      <div
+        class="h-32 w-full flex justify-end gap-2 bg-secondaryColor rounded-lg p-2"
+      >
+        <div class="flex flex-col justify-center items-end">
+          <p class="font-bold text-sm">{{ property?.property_owner_name }}</p>
+          <p class="text-xs">
+            {{ property?.date_posted | date : "yyyy-MM-dd" }}
+          </p>
+        </div>
+
+        <img
+          src="{{ property?.thumbnail }} "
+          class="object-cover h-14 w-14 rounded-full"
+        />
+      </div>
+      <img
+        *ngFor="let image of images"
+        src="{{ image }}"
+        class="object-cover h-32 w-full rounded-lg shadow-lg"
+      />
+    </div>
+  </div>
+  <div
+    class="shadow-md relative"
+    style="width: calc(100% - (50% + 120px)); height: calc(100% - 2%)"
+  >
+    <div
+      class="w-full h-8 flex items-center pl-3 text-sm font-bold text-white bg-brandColor"
+    >
+      Property Details
+    </div>
+
+    <div class="flex flex-col w-full px-3 mt-2 text-sm">
+      <div class="flex gap-2 w-full relative">
+        <div class="font-bold">Property Type :</div>
+        <div class="absolute right-0" style="width: calc(75% - 4%)">
+          {{ property?.property_type }}
+        </div>
+      </div>
+      <div class="flex gap-2 w-full relative">
+        <div class="font-bold">Property Location :</div>
+        <div class="absolute right-0" style="width: calc(75% - 4%)">
+          {{ property?.property_location }}
+        </div>
+      </div>
+      <div class="flex gap-2 w-full relative">
+        <div class="font-bold">Property Age :</div>
+        <div class="absolute right-0" style="width: calc(75% - 4%)">
+          {{ property?.property_age }} years
+        </div>
+      </div>
+      <div class="flex gap-2 w-full relative">
+        <div class="font-bold">Property Price :</div>
+        <div class="absolute right-0" style="width: calc(75% - 4%)">
+          {{ property?.property_price }} KES
+        </div>
+      </div>
+      <div class="flex gap-2 w-full relative h-16">
+        <div class="font-bold">Property Desc :</div>
+        <div class="absolute right-0 text-sm" style="width: calc(75% - 4%)">
+          {{ property?.property_description }}
+        </div>
+      </div>
+
+      <div #amenitiesdiv class="mt-6 flex flex-col gap-2">
+        <span class="border-b border-gray-200 font-bold"> Extra Amenities</span>
+        <div class="mt-2 flex flex-wrap gap-2">
+          <span
+            *ngFor="let amenity of amenities"
+            class="p-2 bg-secondaryColor rounded-lg text-xs"
+          >
+            {{ amenity }}</span
+          >
+        </div>
+      </div>
+    </div>
+    <div
+      class="absolute bottom-0 w-full bg-secondaryColor gap-4 h-10 flex items-center justify-end"
+    >
+      <div
+        class="absolute left-0 w-1/2 h-full flex gap-3 text-sm text-white border-r-4 rounded-tr-full border-white items-center justify-center bg-brandColor"
+      >
+        <fa-icon [icon]="faheart" class="fa-xl" />
+        <p>Add to wishlist</p>
+      </div>
+      <fa-icon [icon]="faX" class="fa-xl" />
+      <fa-icon [icon]="faFacebook" class="fa-xl" />
+      <fa-icon [icon]="faInstagram" class="fa-xl" />
+      <fa-icon [icon]="faPhone" class="fa-xl" />
+    </div>
+  </div>
+</section>
+
+<section class="px-8 mt-5">
+  <div class="bg-secondaryColor text-sm shadow-lg py-1 px-2">
+    <p>
+      More listings from
+      <span class="font-bold">{{ property?.property_owner_name }}</span>
+    </p>
+  </div>
+  <div class="flex flex-wrap w-full px-2 pt-5 gap-3">
+    <ng-container *ngIf="isLoading">
+      <app-property-skeleton
+        *ngFor="let _ of skeletonArray"
+      ></app-property-skeleton>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoading">
+      <ng-container *ngIf="listerProperties.length === 0">
+        <!-- No Results Message -->
+        <div
+          class="w-full text-center flex justify-center gap-1 text-gray-600 py-6"
+        >
+          No more properties were found.
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="listerProperties.length > 0">
+        <app-property
+          *ngFor="let property of listerProperties"
+          [property]="property"
+        ></app-property>
+      </ng-container>
+    </ng-container>
+  </div>
+</section>
+
+<section class="flex flex-col mt-5 px-8">
+  <div class="bg-secondaryColor text-sm shadow-lg py-1 px-2">
+    <p>
+      More <span class="font-bold">{{ property?.property_type }}</span> listings
+    </p>
+  </div>
+  <div class="flex flex-wrap gap-3 mt-6 justify-start">
+    <ng-container *ngIf="isLoading">
+      <app-property-skeleton
+        *ngFor="let _ of skeletonArray"
+      ></app-property-skeleton>
+    </ng-container>
+
+    <ng-container *ngIf="!isLoading">
+      <ng-container *ngIf="similarProperties.length === 0">
+        <!-- No Results Message -->
+        <div
+          class="w-full text-center flex justify-center gap-1 text-gray-600 py-6"
+        >
+          No similar properties were found.
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="similarProperties.length > 0">
+        <app-property
+          *ngFor="let property of similarProperties"
+          [property]="property"
+        ></app-property>
+      </ng-container>
+    </ng-container>
+
+    <!-- Pagination icons with divs showing page numbers  -->
+    <div
+      class="flex items-center justify-center w-full mt-3 mb-3"
+      *ngIf="totalPages > 1"
+    >
+      <!-- Previous Page Icon -->
+      <fa-icon
+        [icon]="faAnglesLeft"
+        (click)="prevPage()"
+        [class.text-gray-400]="currentPage === 1"
+        [class.cursor-pointer]="currentPage > 1"
+        [class.text-black]="currentPage > 1"
+        class="text-gray-400 fa-sm"
+      ></fa-icon>
+
+      <!-- Page Numbers -->
+      <div class="flex items-center mx-4">
+        <div
+          *ngFor="let page of getPageNumbers()"
+          (click)="goToPage(page)"
+          [ngClass]="{
+            'bg-secondaryColor font-bold': currentPage === page,
+            'cursor-pointer': currentPage !== page
+          }"
+          class="px-2 py-1 text-sm mx-1 rounded text-gray-600 hover:bg-secondaryColor"
+        >
+          {{ page }}
+        </div>
+      </div>
+
+      <!-- Next Page Icon -->
+      <fa-icon
+        [icon]="faAnglesRight"
+        (click)="nextPage()"
+        [class.text-gray-400]="currentPage === totalPages"
+        [class.cursor-pointer]="currentPage < totalPages"
+        [class.text-black]="currentPage < totalPages"
+        class="text-gray-400 fa-sm"
+      ></fa-icon>
+    </div>
+  </div>
+</section>

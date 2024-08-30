@@ -1,0 +1,17 @@
+<button
+  [attr.type]="type"
+  [class]="classes"
+  [ngClass]="{
+    'bg-brandColor text-white': isPrimary,
+    'bg-secondaryColor text-gray-800': !isPrimary,
+    'py-2 px-4 rounded-md shadow-md w-28 text-sm': true,
+    'hover:bg-secondaryColor hover:text-black': isPrimary,
+    'hover:bg-secondaryHover': !isPrimary,
+    'focus:outline-none focus:ring-2 focus:ring-offset-2': true
+  }"
+>
+  <ng-container *ngIf="icon">
+    <fa-icon [icon]="icon" class="fa-sm"></fa-icon>
+  </ng-container>
+  {{ text }}
+</button>

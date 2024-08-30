@@ -1,27 +1,83 @@
-# Frontend
+# Real Estate Platform Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+Welcome to the frontend repository of the Real Estate Platform. This application provides a user-friendly interface for browsing property listings, managing user accounts, and navigating through various features related to real estate.
 
-## Development server
+## Table of Contents
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+1. [Project Overview](#project-overview)
+2. [Features](#features)
+3. [Technology Stack](#technology-stack)
+4. [Installation](#installation)
+5. [Configuration](#configuration)
+6. [Usage](#usage)
+7. [Contributing](#contributing)
+8. [License](#license)
 
-## Code scaffolding
+## Project Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The Real Estate Platform frontend is designed to interact with the backend services to provide a seamless experience for users looking to buy or rent properties. It includes features for user authentication, property listings, and role-based access control, all built with Angular and styled with Tailwind CSS.
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **User Authentication**: Sign in and out with token-based authentication.
+- **Property Listings**: View detailed listings of properties, including images and descriptions.
+- **Role-Based Access Control**: Different user roles (e.g., admins and interns) with specific access rights.
+- **Responsive Design**: Modern and responsive UI using Tailwind CSS.
+- **Dynamic Navigation**: Navigation based on user authentication status.
 
-## Running unit tests
+## Technology Stack
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Frontend**: Angular
+- **Styling**: Tailwind CSS
+- **Icons**: FontAwesome
+- **HTTP Client**: Angular's HttpClient
 
-## Running end-to-end tests
+## Screenshots
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. **Home Page**
 
-## Further help
+![Homepage Screenshot](https://firebasestorage.googleapis.com/v0/b/portifolio-mathews.appspot.com/o/ilandpropertyhome.jpg?alt=media&token=7b966419-0ba8-4d91-9ee0-1231fcbf907c)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2. **Property details page**;
+
+![prorty deatils Screenshot](https://firebasestorage.googleapis.com/v0/b/portifolio-mathews.appspot.com/o/property%20deatils.jpg?alt=media&token=09b00d06-7e63-4271-b581-9a955409de7c)
+
+3. **Login page**;
+
+![login page Screenshot](https://firebasestorage.googleapis.com/v0/b/portifolio-mathews.appspot.com/o/login.jpg?alt=media&token=92020818-5b69-4b8f-93c3-7dfa84daf121)
+
+## Installation
+
+To get started with the frontend application, follow these steps:
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/your-username/real-estate-frontend.git
+   cd real-estate-frontend
+
+   ```
+
+2. **Install Dependencies**:
+
+   ```bash
+   npm install
+
+   ```
+
+3. **Run application**;
+
+   ```bash
+   ng serve
+   ```
+
+## Configuration
+
+**API Base URL**: Update the base URL for API requests in src/environments/environment.ts.
+**Authentication\*\***: Ensure the authentication service is properly configured to match the backend setup.
+
+## Usage
+
+1. **Login**: Use the login form to authenticate users. On successful login, a JWT token will be stored and used for subsequent API requests.
+2. **View Properties**: Browse the property listings and view details of each property.
+3. **Role-Based Access**: Navigate the application based on user roles and permissions.

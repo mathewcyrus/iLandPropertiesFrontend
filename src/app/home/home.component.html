@@ -1,0 +1,144 @@
+<section
+  class="relative h-64"
+  style="
+    background-image: url('https://res.cloudinary.com/dt75zlucp/image/upload/v1723534468/iLAndProperties/properties/frames-for-your-heart-2d4lAQAlbDA-unsplash_n4rdle.jpg');
+    background-size: cover;
+    background-position: center;
+  "
+>
+  <div
+    class="relative w-full h-full bg-black bg-opacity-50 flex flex-col justify-center items-center"
+  >
+    <div class="relative flex items-center">
+      <app-input
+        type="text"
+        placeholder="Search for apartments, condos, villas and much more"
+        id="search"
+        name="search"
+        [classes]="'w-100 rounded-3xl'"
+      ></app-input>
+      <fa-icon
+        [icon]="faSearch"
+        class="absolute right-4 text-gray-400 fa-lg"
+      ></fa-icon>
+    </div>
+    <div class="absolute bottom-9 text-3xl text-white font-cormorant">
+      ELEGANCE &middot; lUXURY &middot; EXCELLENCE
+    </div>
+  </div>
+</section>
+
+<section class="w-full h-10 flex items-center justify-center relative">
+  <div
+    class="w-2/3 flex items-center justify-center"
+    style="width: calc(66.666667% - 150px)"
+  >
+    <!-- Scroll icons -->
+    <fa-icon
+      [icon]="faAnglesLeft"
+      (click)="scrollFilters('left')"
+      class="text-gray-400 fa-xm cursor-pointer"
+    ></fa-icon>
+
+    <!-- Filter list -->
+    <div
+      #filterList
+      class="flex items-center justify-start gap-0 overflow-hidden whitespace-nowrap mx-3"
+    >
+      <span
+        *ngFor="let filter of filters"
+        [ngClass]="{
+          ' border-b border-b-brandColor text-black font-bold  rounded':
+            selectedFilter === filter,
+          'cursor-pointer': true
+        }"
+        (click)="selectFilter(filter)"
+        class="filter-item inline-block px-4 py-1 text-sm"
+      >
+        {{ filter }}
+      </span>
+    </div>
+
+    <fa-icon
+      [icon]="faAnglesRight"
+      (click)="scrollFilters('right')"
+      class="text-gray-400 fa-xm cursor-pointer"
+    ></fa-icon>
+  </div>
+
+  <div
+    class="absolute right-0 w-64 h-full font-bold rounded-bl-3xl text-white flex items-center justify-center gap-2 bg-brandColor"
+  >
+    <fa-icon [icon]="faPlus" class="fa-sm" />
+    <span class="text-sm"> add property</span>
+  </div>
+</section>
+
+<section class="flex flex-wrap gap-3 px-8 mt-6 justify-start">
+  <ng-container *ngIf="isLoading">
+    <app-property-skeleton
+      *ngFor="let _ of skeletonArray"
+    ></app-property-skeleton>
+  </ng-container>
+
+  <ng-container *ngIf="!isLoading">
+    <ng-container *ngIf="properties.length === 0">
+      <!-- No Results Message -->
+      <div
+        class="w-full text-center flex justify-center gap-1 text-gray-600 py-6"
+      >
+        No
+        <p class="font-bold">{{ selectedFilter }}</p>
+        were found.
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="properties.length > 0">
+      <app-property
+        *ngFor="let property of properties"
+        [property]="property"
+      ></app-property>
+    </ng-container>
+  </ng-container>
+
+  <!-- Pagination icons with divs showing page numbers  -->
+  <div
+    class="flex items-center justify-center w-full mt-3 mb-3"
+    *ngIf="totalPages > 1"
+  >
+    <!-- Previous Page Icon -->
+    <fa-icon
+      [icon]="faAnglesLeft"
+      (click)="prevPage()"
+      [class.text-gray-400]="currentPage === 1"
+      [class.cursor-pointer]="currentPage > 1"
+      [class.text-black]="currentPage > 1"
+      class="text-gray-400 fa-sm"
+    ></fa-icon>
+
+    <!-- Page Numbers -->
+    <div class="flex items-center mx-4">
+      <div
+        *ngFor="let page of getPageNumbers()"
+        (click)="goToPage(page)"
+        [ngClass]="{
+          'bg-secondaryColor font-bold': currentPage === page,
+          'cursor-pointer': currentPage !== page
+        }"
+        class="px-2 py-1 text-sm mx-1 rounded text-gray-600 hover:bg-secondaryColor"
+      >
+        {{ page }}
+      </div>
+    </div>
+
+    <!-- Next Page Icon -->
+    <fa-icon
+      [icon]="faAnglesRight"
+      (click)="nextPage()"
+      [class.text-gray-400]="currentPage === totalPages"
+      [class.cursor-pointer]="currentPage < totalPages"
+      [class.text-black]="currentPage < totalPages"
+      class="text-gray-400 fa-sm"
+    ></fa-icon>
+  </div>
+</section>

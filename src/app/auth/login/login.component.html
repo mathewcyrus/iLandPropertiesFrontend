@@ -1,0 +1,96 @@
+<div class="relative h-screen flex items-center justify-center">
+  <app-backgroundview
+    class="absolute inset-0 w-full h-full"
+  ></app-backgroundview>
+
+  <div
+    class="relative z-20 h-3/4 mt-5 rounded-lg p-2 bg-white shadow-lg w-80 flex items-center flex-col"
+  >
+    <span
+      class="font-cormorant text-center border-b w-full p-2 font-bold text-xl"
+      >ILANDPROPERTIES</span
+    >
+    <form
+      [formGroup]="loginForm"
+      class="flex items-center flex-col gap-2 w-full h-full px-2"
+      (ngSubmit)="onSubmit()"
+    >
+      <h4 class="text-start w-full text-lg font-bold mt-1">Sign In</h4>
+      <div class="flex gap-3 flex-col w-full mt-1">
+        <app-input
+          formControlName="email"
+          required
+          placeholder="Enter your email"
+          type="email"
+          id="email"
+          [classes]="'w-full border border-gray-200 h-10'"
+        />
+
+        <app-input
+          formControlName="password"
+          required
+          type="password"
+          id="password"
+          placeholder="Enter your password"
+          [classes]="'w-full border border-gray-200 h-10'"
+        ></app-input>
+      </div>
+
+      <div *ngIf="errorMessage" class="text-red-700 text-sm">
+        {{ errorMessage }}
+      </div>
+      <div class="w-full h-10 mt-2">
+        <ng-container *ngIf="!isLoading; else loadingSpinner">
+          <app-button
+            type="submit"
+            text="log in"
+            [classes]="
+              'w-full font-bold' +
+              (loginForm.valid
+                ? ' bg-brandColor text-white'
+                : ' bg-secondaryColor')
+            "
+          ></app-button>
+        </ng-container>
+
+        <ng-template #loadingSpinner>
+          <div
+            class="flex justify-center items-center border border-gray-200 p-2 rounded-lg"
+          >
+            <fa-icon
+              [icon]="faSpinner"
+              [spin]="true"
+              class="fa-lg text-blue-700"
+            ></fa-icon>
+          </div>
+        </ng-template>
+      </div>
+    </form>
+    <p class="text-sm w-full text-center">or</p>
+    <div class="px-2 w-full mt-4">
+      <div
+        class="gap-4 flex h-10 items-center bg-gray-100 justify-center border border-gray-200 rounded-lg w-full"
+      >
+        <fa-icon [icon]="faGoogle" class="fa-lg" /> Google
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-1 p-2 items-start text-sm justify-start w-full"
+    >
+      <p class="text-xs">Don't have an account yet?</p>
+      <div class="w-full">
+        <app-button text="sign up" [classes]="'w-full font-bold'" />
+      </div>
+    </div>
+    <div
+      class="h-10 mt-3 border-t border-gray-100 w-full flex justify-center items-center gap-5"
+    >
+      <p class="text-sm text-blue-800">Terms and conditions</p>
+      <div class="text-lg flex items-center gap-2">
+        &copy;
+        <p class="text-sm">2024</p>
+      </div>
+    </div>
+  </div>
+</div>

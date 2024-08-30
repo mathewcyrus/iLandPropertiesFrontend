@@ -1,0 +1,45 @@
+<div
+  class="w-60 h-72 shadow-md overflow-hidden hover:p-1 hover:cursor-pointer hover:border-brandColor hover:border"
+  (click)="navigateToProperty(property.property_id)"
+>
+  <div>
+    <img
+      src="{{ property.thumbnail }}"
+      alt="{{ property.property_type }}"
+      class="object-cover h-36 w-full"
+    />
+  </div>
+  <div class="px-3">
+    <div class="flex flex-col">
+      <div class="flex justify-between mt-1">
+        <p class="text-xs">{{ property.property_type }}</p>
+        <span class="font-bold text-xs">{{ property.property_price }} KES</span>
+      </div>
+
+      <div class="flex items-center gap-2 mt-2">
+        <fa-icon [icon]="faLocationDot" class="fa-sm" />
+        <p class="text-xs font-bold">{{ property.property_location }}</p>
+      </div>
+      <div class="text-xs mt-1 truncate">
+        {{ property.property_description }}
+      </div>
+    </div>
+    <div class="flex w-full gap-2 mt-3">
+      <div class="rounded-full w-14 h-14 overflow-hidden">
+        <img
+          src="{{ property.thumbnail }} "
+          alt="{{ property.property_owner_name }}"
+          class="object-cover h-full w-full"
+        />
+      </div>
+      <div class="w-2/3 flex flex-col justify-center">
+        <p class="text-xs font-bold">{{ property.property_owner_name }}</p>
+        <div class="flex items-center gap-1">
+          <fa-icon [icon]="faCertificate" class="fa-sm text-blue-700" />
+          &middot;
+          <p class="text-xs">{{ property.date_posted }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
